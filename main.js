@@ -17,6 +17,7 @@ connectDB();
 app.use(cors());
 app.use(express.json({extended: false}));
 app.use('/services/', require('./services/criarAgendamento'));
+app.use('/services/', require('./services/listarAgendamentos'));
 
 const ws = require('websocket-stream')
 ws.createServer({ server: httpServer }, aedes.handle)
