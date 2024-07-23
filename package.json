@@ -10,6 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "aedes": "^0.51.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "luxon": "^3.4.4",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.0",
     "websocket-stream": "^5.5.2",
     "ws": "^8.17.0"
   }

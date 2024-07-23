@@ -1,7 +1,22 @@
+const express = require('express');
+const app = express();
 const aedes = require('aedes')();
-
 const tcpServer = require('net').createServer(aedes.handle);
-const httpServer = require('http').createServer();
+const httpServer = require('http').createServer(app);
+const connectDB = require('./database/connectDB');
+const cors = require('cors');
+
+/**
+ * DB connection
+ */
+connectDB();
+
+/**
+ * Routes
+ */
+app.use(cors());
+app.use(express.json({extended: false}));
+app.use('/services/', require('./services/criarAgendamento'));
 
 const ws = require('websocket-stream')
 ws.createServer({ server: httpServer }, aedes.handle)
