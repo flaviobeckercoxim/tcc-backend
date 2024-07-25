@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {DateTime} = require("luxon");
 const Agendamento = require('../datamodel/Agendamento');
+const gerenciadorDeAgendamento = require('../manager/gerenciadorDeAgendamento');
 
 router.put('/agendamento/', async (request, response) => {
     try{
@@ -24,7 +25,9 @@ router.put('/agendamento/', async (request, response) => {
         }
 
         await Agendamento.findOneAndUpdate({_id:body.id}, update);
+        await gerenciadorDeAgendamento.carregarAgendamentos();
         return response.status(200).send();
+
     }catch(err){
         const resBody = {
             msg: err

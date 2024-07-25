@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {DateTime} = require("luxon");
 const Agendamento = require('../datamodel/Agendamento');
+const gerenciadorDeAgendamento = require('../manager/gerenciadorDeAgendamento');
 
 router.post('/agendamento/', async (request, response) => {
     try{
@@ -11,6 +12,7 @@ router.post('/agendamento/', async (request, response) => {
         body.horario = await new Date(body.horario);
         const agendamento = new Agendamento(body);
         await agendamento.save();
+        await gerenciadorDeAgendamento.carregarAgendamentos();
         return response.status(200).send();
     }catch(err){
         const resBody = {

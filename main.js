@@ -5,7 +5,7 @@ const tcpServer = require('net').createServer(aedes.handle);
 const httpServer = require('http').createServer(app);
 const connectDB = require('./database/connectDB');
 const cors = require('cors');
-
+const gerenciadorDeAgendamento = require('./manager/gerenciadorDeAgendamento');
 /**
  * DB connection
  */
@@ -34,4 +34,5 @@ tcpServer.listen(1883,function(){
 
 httpServer.listen(8080,function(){
 	console.log ("Servidor HTTP e WS no ar");
+	gerenciadorDeAgendamento.iniciar();
 });
