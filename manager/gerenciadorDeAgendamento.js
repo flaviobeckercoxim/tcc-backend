@@ -1,6 +1,5 @@
 const {DateTime} = require("luxon");
 const Agendamento = require('../datamodel/Agendamento');
-const aedes = require('aedes');
 
 module.exports = {
     agendamentos: [],
@@ -27,15 +26,15 @@ module.exports = {
         console.log("verificando Agendamento");
         for(let key in that.agendamentos){
             let agendamento = that.agendamentos[key];
+
+            if(agendamento.dia !== agora.weekday){
+                continue;
+            }
+
             let inicio = DateTime.fromJSDate(agendamento.horario);
             let fim = inicio.plus({minutes:agendamento.tempo});
 
-            //if(agendamento.dia == agora.weekday){
-                console.log(agendamento.dia);
-                console.log(agora.weekday);
-            //}
-
-            if(agora>=inicio && agora<=fim && !agendamento.ativo ){
+            if(agora >= inicio && agora <= fim && !agendamento.ativo ){
                 agendamento.ativo = true;
                 this.acionarIrrigacao(agendamento.tempo, agendamento);
             }
