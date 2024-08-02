@@ -30,6 +30,11 @@ module.exports = {
             let inicio = DateTime.fromJSDate(agendamento.horario);
             let fim = inicio.plus({minutes:agendamento.tempo});
 
+            //if(agendamento.dia == agora.weekday){
+                console.log(agendamento.dia);
+                console.log(agora.weekday);
+            //}
+
             if(agora>=inicio && agora<=fim && !agendamento.ativo ){
                 agendamento.ativo = true;
                 this.acionarIrrigacao(agendamento.tempo, agendamento);
