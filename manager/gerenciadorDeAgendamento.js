@@ -17,6 +17,7 @@ module.exports = {
     carregarAgendamentos: async function ()  {
         console.log("carregando agendamentos");
         this.agendamentos = await Agendamento.find().sort({dia:'asc'});
+        console.log(new Date());
         for(let i in this.agendamentos){
             console.log(this.agendamentos[i]);
         }
