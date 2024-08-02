@@ -17,6 +17,9 @@ module.exports = {
     carregarAgendamentos: async function ()  {
         console.log("carregando agendamentos");
         this.agendamentos = await Agendamento.find().sort({dia:'asc'});
+        for(let i in this.agendamentos){
+            console.log(this.agendamentos[i]);
+        }
     },
     verificarAgendamentos: async function (that){
         let agora = DateTime.now();
@@ -34,6 +37,5 @@ module.exports = {
     },
     acionarIrrigacao: function (tempo,agendamento){
         console.log("acionando a irrigação");
-
     },
 }
