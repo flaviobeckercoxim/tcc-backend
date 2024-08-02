@@ -27,7 +27,7 @@ module.exports = {
         for(let key in that.agendamentos){
             let agendamento = that.agendamentos[key];
 
-            if(agendamento.dia !== agora.weekday){
+            if(agendamento.dia != agora.weekday){
                 continue;
             }
 
