@@ -18,7 +18,7 @@ module.exports = {
         console.log("carregando agendamentos");
         this.agendamentos = await Agendamento.find().sort({dia:'asc'});
         for(let i in this.agendamentos){
-            console.log(this.agendamentos[i].horario.toLocal());
+            console.log(this.agendamentos[i].horario.toLocaleDateString());
         }
     },
     verificarAgendamentos: async function (that){
