@@ -29,7 +29,7 @@ module.exports = {
 
 
             console.log("Dia do agendamento: ", agendamento.dia);
-            console.log("Dia da semana: ", agora.dia);
+            console.log("Dia da semana: ", agora.weekday);
 
             if(agendamento.dia != agora.weekday){
                 console.log("Dias diferentes");
