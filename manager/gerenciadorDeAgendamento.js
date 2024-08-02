@@ -27,7 +27,12 @@ module.exports = {
         for(let key in that.agendamentos){
             let agendamento = that.agendamentos[key];
 
+
+            console.log("Dia do agendamento: ", agendamento.dia);
+            console.log("Dia da semana: ", agora.dia);
+
             if(agendamento.dia != agora.weekday){
+                console.log("Dias diferentes");
                 continue;
             }
 
@@ -35,6 +40,7 @@ module.exports = {
             let fim = inicio.plus({minutes:agendamento.tempo});
 
             if(agora >= inicio && agora <= fim && !agendamento.ativo ){
+                console.log("Acionando: ",agendamento);
                 agendamento.ativo = true;
                 this.acionarIrrigacao(agendamento.tempo, agendamento);
             }
