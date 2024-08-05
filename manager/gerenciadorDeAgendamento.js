@@ -27,7 +27,6 @@ module.exports = {
         for(let key in that.agendamentos){
             let agendamento = that.agendamentos[key];
 
-
             console.log("Dia do agendamento: ", agendamento.dia);
             console.log("Dia da semana: ", agora.weekday);
 
