@@ -8,9 +8,9 @@ router.post('/agendamento/', async (request, response) => {
     try{
         const body = request.body;
         delete body.id;
-        console.log(body);
         body.horario = await new Date(body.horario);
         const agendamento = new Agendamento(body);
+        console.log(agendamento);
         await agendamento.save();
         await gerenciadorDeAgendamento.carregarAgendamentos();
         return response.status(200).send();
