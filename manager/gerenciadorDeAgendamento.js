@@ -31,7 +31,6 @@ module.exports = {
         for(let key in that.agendamentos){
             let agendamento = that.agendamentos[key];
 
-
             console.log("Dia do agendamento: ", agendamento.dia);
             console.log("Dia da semana: ", agora.weekday);
 
@@ -43,13 +42,7 @@ module.exports = {
             let inicio = DateTime.fromJSDate(agendamento.horario);
             let fim = inicio.plus({minutes:agendamento.tempo});
 
-<<<<<<< HEAD
             if(agora>=inicio && agora<=fim && !this.agendamentosAtivos.includes(agendamento)){
-=======
-            if(agora >= inicio && agora <= fim && !agendamento.ativo ){
-                console.log("Acionando: ",agendamento);
-                agendamento.ativo = true;
->>>>>>> b33ef76b7fbf032c3aefc2af60b7704bd0d9f973
                 this.acionarIrrigacao(agendamento.tempo, agendamento);
                 this.agendamentosAtivos.push(agendamento);
             }
@@ -71,13 +64,10 @@ module.exports = {
     },
     acionarIrrigacao: function (tempo,agendamento){
         console.log("acionando a irrigação");
-<<<<<<< HEAD
         let payload={
             com: 1,
             tem: agendamento.tempo
         }
         this.broker.publish({topic:'/comando',payload:JSON.stringify(payload)});
-=======
->>>>>>> b33ef76b7fbf032c3aefc2af60b7704bd0d9f973
     },
 }
