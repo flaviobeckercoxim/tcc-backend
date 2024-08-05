@@ -34,5 +34,5 @@ tcpServer.listen(1883,function(){
 
 httpServer.listen(8080,function(){
 	console.log ("Servidor HTTP e WS no ar");
-	gerenciadorDeAgendamento.iniciar();
+	gerenciadorDeAgendamento.iniciar(aedes);
 });
