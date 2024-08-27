@@ -32,7 +32,7 @@ tcpServer.listen(1883,function(){
 	console.log("Broker MQTT");
 });
 
-httpServer.listen(3000,function(){
+httpServer.listen(8080,function(){
 	console.log ("Servidor HTTP e WS no ar");
 	gerenciadorDeAgendamento.iniciar(aedes);
 });
