@@ -22,7 +22,7 @@ app.use('/services/', require('./services/removerAgendamento'));
 app.use('/services/', require('./services/atualizarAgendamento'));
 
 const ws = require('websocket-stream')
-ws.createServer({ server: httpServer }, aedes.handle)
+ws.createServer({ server: httpServer }, aedes.handle);
 
 aedes.on('client',function(client){
 	console.log ("Novo Cliente conectado" );
@@ -32,7 +32,7 @@ tcpServer.listen(1883,function(){
 	console.log("Broker MQTT");
 });
 
-httpServer.listen(3000,function(){
+httpServer.listen(8080,function(){
 	console.log ("Servidor HTTP e WS no ar");
 	gerenciadorDeAgendamento.iniciar(aedes);
 });
